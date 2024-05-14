@@ -33,11 +33,23 @@ class CustomEditText @JvmOverloads constructor(
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                // Password kurang dari 8 karakter akan dapat warning
                 if (this@CustomEditText.id == R.id.ed_login_password) {
                     if (s.length < 8) {
                         // Show error message directly on the EditText
                         error = "Password must be at least 8 characters"
                     } else {
+                        // Clear error if the length is valid
+                        error = null
+                    }
+                }
+                // Penulisan email yang salah juga akan dapat warning
+                if (this@CustomEditText.id == R.id.ed_login_email) {
+                    if (!android.util.Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
+                        // Show error message directly on the EditText
+                        error = "Email is not valid"
+                    }
+                    else {
                         // Clear error if the length is valid
                         error = null
                     }

@@ -42,7 +42,7 @@
                 android:layout_marginTop="16dp"
                 android:autofillHints="email"
                 android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/baseline_person_24"
+                android:drawableStart="@drawable/baseline_email"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/dark_blue"
                 android:hint="@string/email"
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/login" />
+                android:text="@string/sign_in" />
 
             <TextView
                 android:id="@+id/tv_no_account"
