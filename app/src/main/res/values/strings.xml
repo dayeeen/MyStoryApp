@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyStoryApp</string>
+    <string name="login_text">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="no_account">Don\'t have an account? Sign up here.</string>
+    <string name="signin">Sign In</string>
+</resources>
