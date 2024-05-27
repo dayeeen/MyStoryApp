@@ -8,7 +8,7 @@
     android:background="@drawable/bg_storyapp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.activity.LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <com.dayeeen.mystoryapp.customview.CustomEditText
+            <com.dayeeen.mystoryapp.ui.customview.CustomEditText
                 android:id="@+id/ed_login_email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -60,7 +60,7 @@
                 android:padding="8dp"
                 android:textColor="@color/dark_blue" />
 
-            <com.dayeeen.mystoryapp.customview.CustomEditText
+            <com.dayeeen.mystoryapp.ui.customview.CustomEditText
                 android:id="@+id/ed_login_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -74,7 +74,7 @@
                 android:padding="8dp"
                 android:textColor="@color/dark_blue" />
 
-            <com.dayeeen.mystoryapp.customview.CustomButton
+            <com.dayeeen.mystoryapp.ui.customview.CustomButton
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

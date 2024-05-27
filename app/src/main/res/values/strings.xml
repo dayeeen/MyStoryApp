@@ -10,4 +10,26 @@
     <string name="register">Register</string>
     <string name="name">Name</string>
     <string name="have_account">Already have an account? Sign in here.</string>
+    <string name="caption">Caption</string>
+    <string name="username">Username</string>
+    <string name="img_desc">Image of a story</string>
+    <string name="profile_image_desc">Profile Image for User</string>
+    <string name="start_desc">Wanna share your story? Wanna see what\'s happening in your area? Don\'t worry, we\'ve got you covered.</string>
+    <string name="start_title">Let\'s Get Started</string>
+    <string name="copyright">© Created by Dian Saputra.</string>
+    <string name="upload">Upload</string>
+    <string name="add">Add</string>
+    <string name="fill_caption">Fill the caption...</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="load_error">Loading error...</string>
+    <string name="uploadAlert">Upload your image first!</string>
+    <string name="uploadDescAlert">Upload the description first!</string>
+    <string name="language">Language</string>
+    <string name="logout">Logout</string>
+    <string name="package_name">com.dayeeen.mystoryapp</string>
+    <string name="message">Message:</string>
+    <string name="incorrectEmail">Incorrect email format\n</string>
+    <string name="emailTaken">Email has been registered, please use another email.</string>
+    <string name="empty_image_alert">Please upload an image first...</string>
 </resources>
