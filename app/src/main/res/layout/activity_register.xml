@@ -59,7 +59,8 @@
                 android:drawableTint="@color/dark_blue"
                 android:hint="@string/name"
                 android:inputType="textEmailAddress"
-                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textColor="@color/dark_blue" />
 
             <com.dayeeen.mystoryapp.ui.customview.CustomEmail
@@ -70,11 +71,12 @@
                 android:autofillHints="email"
                 android:background="@drawable/custom_edit_text"
                 android:drawableStart="@drawable/baseline_email"
-                android:drawablePadding="10dp"
+                android:drawablePadding="12dp"
                 android:drawableTint="@color/dark_blue"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textColor="@color/dark_blue" />
 
             <com.dayeeen.mystoryapp.ui.customview.CustomEditText
@@ -88,7 +90,8 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textColor="@color/dark_blue" />
 
 
