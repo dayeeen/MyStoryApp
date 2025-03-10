@@ -5,8 +5,9 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dayeeen.mystoryapp.R
@@ -14,7 +15,7 @@ import com.dayeeen.mystoryapp.data.response.ListStoryItem
 import com.dayeeen.mystoryapp.databinding.ListStoryBinding
 import com.dayeeen.mystoryapp.ui.activity.DetailStoryActivity
 
-class ListStoryAdapter : ListAdapter<ListStoryItem, ListStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class ListStoryAdapter : PagingDataAdapter<ListStoryItem, ListStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ListStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,7 +24,9 @@ class ListStoryAdapter : ListAdapter<ListStoryItem, ListStoryAdapter.MyViewHolde
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val user = getItem(position)
-        holder.bind(user)
+        if (user != null) {
+            holder.bind(user)
+        }
     }
 
     class MyViewHolder(private val binding: ListStoryBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -43,9 +46,9 @@ class ListStoryAdapter : ListAdapter<ListStoryItem, ListStoryAdapter.MyViewHolde
                 val optionsCompat: ActivityOptionsCompat =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
                         itemView.context as Activity,
-                        androidx.core.util.Pair.create(binding.ivItemPhoto, "photo"),
-                        androidx.core.util.Pair.create(binding.tvItemName, "name"),
-                        androidx.core.util.Pair.create(binding.caption, "description")
+                        Pair.create(binding.ivItemPhoto, "photo"),
+                        Pair.create(binding.tvItemName, "name"),
+                        Pair.create(binding.caption, "description")
                     )
                 itemView.context.startActivity(intent, optionsCompat.toBundle())
             }

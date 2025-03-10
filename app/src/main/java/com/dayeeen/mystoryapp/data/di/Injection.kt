@@ -1,6 +1,7 @@
 package com.dayeeen.mystoryapp.data.di
 
 import android.content.Context
+import com.dayeeen.mystoryapp.data.database.StoryDatabase
 import com.dayeeen.mystoryapp.data.preferences.UserPreference
 import com.dayeeen.mystoryapp.data.preferences.dataStore
 import com.dayeeen.mystoryapp.data.repository.UserRepository
@@ -13,6 +14,7 @@ object Injection {
         val pref = UserPreference.getInstance(context.dataStore)
         val user = runBlocking { pref.getSession().first() }
         val apiService = ApiConfig.getApiService(user.token)
-        return UserRepository.getInstance(apiService, pref)
+        val storyDatabase = StoryDatabase.getDatabase(context)
+        return UserRepository.getInstance(apiService, pref, storyDatabase)
     }
 }

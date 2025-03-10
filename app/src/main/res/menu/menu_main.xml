@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/language_option"
-        android:title="@string/language" />
+        android:id="@+id/maps_option"
+        android:title="@string/maps" />
     <item
         android:id="@+id/logout_option"
         android:title="@string/logout"/>

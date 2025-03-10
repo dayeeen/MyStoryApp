@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.dayeeen.mystoryapp.R
 import com.dayeeen.mystoryapp.databinding.ActivityRegisterBinding
 import com.dayeeen.mystoryapp.utils.StateResult
 import com.dayeeen.mystoryapp.viewmodel.RegisterViewModel
@@ -50,9 +51,9 @@ class RegisterActivity : AppCompatActivity() {
                         is StateResult.Success -> {
                             showLoading(false)
                             AlertDialog.Builder(this).apply {
-                                setTitle("Registration successful!")
-                                setMessage("Your account has been registered.")
-                                setPositiveButton("Continue") { _, _ ->
+                                setTitle(R.string.register_success)
+                                setMessage(R.string.register_success_message)
+                                setPositiveButton(R.string.cont) { _, _ ->
                                     // Langsung diarahkan ke halaman login
                                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                                     startActivity(intent)

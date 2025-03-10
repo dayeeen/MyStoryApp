@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity() {
         binding.rvStory.adapter = adapter
         binding.rvStory.layoutManager = LinearLayoutManager(this)
 
-        mvm.stories.observe(this) { stories ->
-            adapter.submitList(stories)
+        mvm.stories.observe(this) {
+            adapter.submitData(lifecycle, it)
         }
     }
 
@@ -69,9 +69,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.language_option -> {
-                // Handle language change logic
-                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            R.id.maps_option -> {
+                // Handle maps logic
+                startActivity(Intent(this, MapsActivity::class.java))
                 true
             }
             R.id.logout_option -> {

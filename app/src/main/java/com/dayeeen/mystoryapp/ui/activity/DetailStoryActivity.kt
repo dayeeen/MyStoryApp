@@ -23,7 +23,7 @@ class DetailStoryActivity : AppCompatActivity() {
 
         val storyId = intent.getStringExtra("USER_ID")
         if (storyId != null) {
-            dvm.fetchDetail(storyId)
+            dvm.fetchDetail(this, storyId)
         }
         dvm.detail.observe(this) { user ->
             setUserDetails(user)

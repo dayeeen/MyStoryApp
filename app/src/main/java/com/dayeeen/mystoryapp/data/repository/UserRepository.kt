@@ -1,8 +1,16 @@
 package com.dayeeen.mystoryapp.data.repository
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
 import com.dayeeen.mystoryapp.data.UserData
+import com.dayeeen.mystoryapp.data.database.StoryDatabase
 import com.dayeeen.mystoryapp.data.preferences.UserPreference
+import com.dayeeen.mystoryapp.data.remote.StoryRemoteMediator
 import com.dayeeen.mystoryapp.data.response.ListStoryItem
 import com.dayeeen.mystoryapp.data.response.LoginResponse
 import com.dayeeen.mystoryapp.data.response.RegisterResponse
@@ -20,7 +28,9 @@ import retrofit2.HttpException
 import java.io.File
 
 class UserRepository private constructor(
-    private var apiService: ApiService, private val userPreference: UserPreference
+    private var apiService: ApiService,
+    private val userPreference: UserPreference,
+    private val storyDatabase: StoryDatabase
 ) {
 
 
@@ -36,8 +46,14 @@ class UserRepository private constructor(
         return userPreference.getSession()
     }
 
-    suspend fun getStories(): List<ListStoryItem> {
-        return apiService.getStories().listStory
+    fun getStoriesPaging(): LiveData<PagingData<ListStoryItem>> {
+        @OptIn(ExperimentalPagingApi::class) return Pager(config = PagingConfig(
+            pageSize = 5
+        ),
+            remoteMediator = StoryRemoteMediator(storyDatabase, apiService),
+            pagingSourceFactory = {
+                storyDatabase.storyDao().getAllStories()
+            }).liveData
     }
 
 
@@ -92,12 +108,16 @@ class UserRepository private constructor(
 
     }
 
+    suspend fun getStoriesWithLocation(): StoryResponse {
+        return apiService.getStoriesWithLocation()
+    }
+
     companion object {
         @Volatile
         private var instance: UserRepository? = null
-        fun getInstance(apiService: ApiService, userPreference: UserPreference) =
+        fun getInstance(apiService: ApiService, userPreference: UserPreference, storyDatabase: StoryDatabase) =
             instance ?: synchronized(this) {
-                instance ?: UserRepository(apiService, userPreference)
+                instance ?: UserRepository(apiService, userPreference, storyDatabase)
             }.also { instance = it }
     }
 }

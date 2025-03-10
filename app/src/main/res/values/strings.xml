@@ -32,4 +32,15 @@
     <string name="incorrectEmail">Incorrect email format\n</string>
     <string name="emailTaken">Email has been registered, please use another email.</string>
     <string name="empty_image_alert">Please upload an image first...</string>
+    <string name="maps">Maps</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="login_success">Login Successful</string>
+    <string name="cont">Continue</string>
+    <string name="login_success_message">You have successfully logged in.</string>
+    <string name="register_success">Registration successful!</string>
+    <string name="register_success_message">Your account has been registered.</string>
 </resources>

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.dayeeen.mystoryapp.R
 import com.dayeeen.mystoryapp.data.UserData
 import com.dayeeen.mystoryapp.data.di.Injection
 import com.dayeeen.mystoryapp.data.retrofit.ApiConfig
@@ -54,9 +55,9 @@ class LoginActivity : AppCompatActivity() {
                         val userRepository = Injection.provideRepository(applicationContext)
                         userRepository.updateApiService(ApiConfig.getApiService(token))
                         AlertDialog.Builder(this).apply {
-                            setTitle("Login Successful")
-                            setMessage("You have successfully logged in.")
-                            setPositiveButton("Continue") { _, _ ->
+                            setTitle(R.string.login_success)
+                            setMessage(R.string.login_success_message)
+                            setPositiveButton(R.string.cont) { _, _ ->
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
